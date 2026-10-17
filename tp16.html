@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>TP 16 — Pseudo-classes CSS</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+
+nav a:link { color: #0066CC; }
+nav a:visited { color: #800080; }
+nav a:hover { background: yellow; font-weight: bold; }
+nav a:active { color: red; }
+
+
+.nom:focus {
+    background: #FFFACD;
+    border: 3px solid blue;
+}
+
+.email:focus {
+    background: #CCFFCC;
+    border: 3px solid green;
+}
+
+.telephone:focus {
+    background: #FFE5CC;
+    border: 3px solid orange;
+}
+
+.message:focus {
+    background: #FFD6E7;
+    border: 3px solid pink;
+    height: 150px;
+}
+
+button:focus {
+    box-shadow: 0 0 10px black;
+}
+
+
+.validation-form input:invalid {
+    border: 2px solid red;
+}
+
+.validation-form input:valid {
+    border: 2px solid green;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/992/992700.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+}
+
+.validation-form input:required {
+    background: #FFFFCC;
+}
+
+.validation-form input:optional {
+    background: #F5F5F5;
+}
+
+.aide {
+    display: none;
+    color: red;
+    font-size: 13px;
+}
+
+.validation-form input:invalid + .aide {
+    display: block;
+}
+
+
+.produits li:first-child {
+    background: green;
+    color: white;
+    padding: 5px;
+}
+
+.produits li:last-child {
+    background: red;
+    color: white;
+    padding: 5px;
+}
+
+.tableau-donnees tr:nth-child(even) {
+    background: #F0F0F0;
+}
+
+.tableau-donnees tr:nth-child(odd) {
+    background: white;
+}
+
+.tableau-donnees tr:nth-child(3) {
+    background: yellow;
+    font-weight: bold;
+}
+
+
+.preferences input:checked + label,
+.preferences label:has(input:checked) {
+    background: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.preferences input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.preferences label:has(input:disabled) {
+    color: gray;
+    text-decoration: line-through;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    transform: scale(1.3);
+    accent-color: green;
+}
+
+
+.galerie {
+    display: flex;
+    gap: 20px;
+}
+
+.carte {
+    width: 200px;
+    padding: 20px;
+    background: #EEE;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.carte p {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.carte:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.carte:hover h3 {
+    color: blue;
+}
+
+.carte:hover p {
+    opacity: 1;
+}
+
+
+.notification:not(.importante) {
+    opacity: 0.6;
+}
+
+.notifications div:not(:first-child) {
+    border-top: 1px solid #CCC;
+}
+
+.notifications div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.notification:not(:hover) {
+    background: #F2F2F2;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>TP 16 — Pseudo-classes CSS</h1>
+
+
+<h2>Exercice 1 : Pseudo-classes de liens</h2>
+<nav>
+    <a href="https://www.google.com">Google (déjà visité)</a><br>
+    <a href="https://www.sitenonvisite.com">Site non visité</a><br>
+    <a href="https://www.exemple.com">Exemple</a>
+</nav>
+
+
+<h2>Exercice 2 : Focus sur les champs</h2>
+<form>
+    <input type="text" class="nom" placeholder="Nom"><br><br>
+    <input type="email" class="email" placeholder="Email"><br><br>
+    <input type="tel" class="telephone" placeholder="Téléphone"><br><br>
+    <textarea class="message" placeholder="Message"></textarea><br><br>
+    <button>Envoyer</button>
+</form>
+
+
+<h2>Exercice 3 : Champs valides et invalides</h2>
+<form class="validation-form">
+
+    <div>
+        <label>Email (requis) :</label>
+        <input type="email" required>
+        <div class="aide">Veuillez entrer un email valide.</div>
+    </div>
+
+    <div>
+        <label>URL (requis) :</label>
+        <input type="url" required >
+        <div class="aide">Entrez une URL valide.</div>
+    </div>
+
+    <div>
+        <label>Numéro (1 à 100) :</label>
+        <input type="number" min="1" max="100">
+        <div class="aide">Entrez un nombre entre 1 et 100.</div>
+    </div>
+
+    <div>
+        <label>Date de naissance :</label>
+        <input type="date" required>
+        <div class="aide">Ce champ est obligatoire.</div>
+    </div>
+
+    <button>Valider</button>
+
+</form>
+
+
+<h2>Exercice 4 : Structure des éléments</h2>
+
+<h3>Liste de produits</h3>
+<ul class="produits">
+    <li>Produit 1 - 100 DH</li>
+    <li>Produit 2 - 150 DH</li>
+    <li>Produit 3 - 200 DH</li>
+    <li>Produit 4 - 120 DH</li>
+    <li>Produit 5 - 180 DH</li>
+</ul>
+
+<h3>Tableau des données</h3>
+<table class="tableau-donnees" border="1" cellpadding="10">
+    <tr><td>Ligne 1</td><td>Donnée A</td></tr>
+    <tr><td>Ligne 2</td><td>Donnée B</td></tr>
+    <tr><td>Ligne 3</td><td>Donnée C</td></tr>
+    <tr><td>Ligne 4</td><td>Donnée D</td></tr>
+    <tr><td>Ligne 5</td><td>Donnée E</td></tr>
+    <tr><td>Ligne 6</td><td>Donnée F</td></tr>
+</table>
+
+
+<h2>Exercice 5 : Cases cochées et champs désactivés</h2>
+<form class="preferences">
+
+    <h3>Préférences :</h3>
+
+    <label><input type="checkbox" name="pref" value="email"> Recevoir des emails</label><br>
+    <label><input type="checkbox" name="pref" value="sms"> Recevoir des SMS</label><br>
+    <label><input type="checkbox" name="pref" value="appel" disabled> Recevoir des appels (non disponible)</label><br><br>
+
+    <h3>Fréquence :</h3>
+
+    <label><input type="radio" name="frequence" value="jour"> Quotidien</label><br>
+    <label><input type="radio" name="frequence" value="semaine"> Hebdomadaire</label><br>
+    <label><input type="radio" name="frequence" value="mois" disabled> Mensuel (non disponible)</label>
+</form>
+
+
+<h2>Exercice 6 : Galerie avec effets au survol</h2>
+<div class="galerie">
+    <div class="carte">
+        <h3>Carte 1</h3>
+        <p>Description de la carte 1</p>
+    </div>
+    <div class="carte">
+        <h3>Carte 2</h3>
+        <p>Description de la carte 2</p>
+    </div>
+    <div class="carte">
+        <h3>Carte 3</h3>
+        <p>Description de la carte 3</p>
+    </div>
+</div>
+
+
+<h2>Exercice 7 : Notifications avec :not()</h2>
+<div class="notifications">
+    <div class="notification">Notification 1</div>
+    <div class="notification">Notification 2</div>
+    <div class="notification">Notification 3</div>
+    <div class="notification importante">Notification importante</div>
+    <div class="notification">Notification 5</div>
+</div>
+
+</body>
+</html>
+
