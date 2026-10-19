@@ -1,6 +1,10 @@
 see teh changes
 <<<<<<< HEAD
+<<<<<<< HEAD
 the name is good ,mnm,n,,m,nm
+=======
+hello to all 
+>>>>>>> f2e3e4a (the hello)
 =======
 hello to all 
 >>>>>>> f2e3e4a (the hello)
