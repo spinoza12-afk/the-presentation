@@ -1,6 +1,7 @@
 see teh changes
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 the name is good ,mnm,n,,m,nm
 =======
 hello to all 
@@ -8,3 +9,6 @@ hello to all
 =======
 hello to all 
 >>>>>>> f2e3e4a (the hello)
+=======
+the name is good ,mnm,n,,m,nm
+>>>>>>> parent of 461cfc3 (jhfjdh)
